@@ -109,15 +109,7 @@ int main()
 		1, 2, 3    // 두 번째 삼각형
 	};
 
-	//glVertexAttribute 설정
-	//parameter 1: vertexshader의 layout (location = 0)
-	//parameter 2: vertex 크기
-	//parameter 3: type
-	//parameter 4: nomalization(-1 ~ 1사이로)
-	//parameter 5: stride (float vec3이므로 3*sizeof(float))
-	//parameter 6: buffer offset
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
+
 
 	unsigned int VAO, VBO, EBO;
 	//Vertex Buffer Object 생성
@@ -137,7 +129,14 @@ int main()
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	//buffer에 indices copy
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-	//layout = 0에 지정
+
+	//glVertexAttribute 설정
+	//parameter 1: vertexshader의 layout (location = 0)
+	//parameter 2: vertex 크기
+	//parameter 3: type
+	//parameter 4: nomalization(-1 ~ 1사이로)
+	//parameter 5: stride (float vec3이므로 3*sizeof(float))
+	//parameter 6: buffer offset
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
